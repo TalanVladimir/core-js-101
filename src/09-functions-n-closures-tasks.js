@@ -161,7 +161,8 @@ function partialUsingArguments(/* fn, ...args1 */) {
  *   getId4() => 7
  *   getId10() => 11
  */
-function getIdGeneratorFunction(/* startFrom */) {
+function getIdGeneratorFunction() {
+  // this.value = value;
   throw new Error('Not implemented');
 }
 
