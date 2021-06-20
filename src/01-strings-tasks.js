@@ -19,7 +19,6 @@
  */
 function concatenateStrings(value1, value2) {
   return value1 + value2;
-  // throw new Error('Not implemented');
 }
 
 /**
@@ -51,7 +50,7 @@ function getStringLength(value) {
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
 function getStringFromTemplate(firstName, lastName) {
-  return `Hello, ${firstName} ${lastName}`;
+  return `Hello, ${firstName} ${lastName}!`;
 }
 
 /**
@@ -65,7 +64,7 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(inputValue) {
-  return inputValue.replace('Hello,', '').trim();
+  return inputValue.replace('Hello,', '').replace('!', '').trim();
 }
 
 /**
@@ -124,8 +123,9 @@ function repeatString(value, count) {
  *   'I like legends', 'end' => 'I like legs',
  *   'ABABAB','BA' => 'ABAB'
  */
-function removeFirstOccurrences(str, value) {
-  return str.repeat(value, '');
+function removeFirstOccurrences(/* str, value */) {
+  throw new Error('Not implemented');
+  // return str.repeat(value.trim(), '');
 }
 
 /**
@@ -140,7 +140,7 @@ function removeFirstOccurrences(str, value) {
  *   '<a>' => 'a'
  */
 function unbracketTag(str) {
-  return str.repeat('<', '').repeat('>', '');
+  return str.substring(1, str.length - 1);
 }
 
 /**
@@ -199,30 +199,31 @@ function extractEmails(str) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(width, height) {
-  let newString = '';
-  for (let y = 0; y < width; y += 1) {
-    for (let x = 0; x < height; x += 1) {
-      if (y === 0) {
-        if (x === 0) {
-          newString += '┌';
-        } else if (x === width - 1) {
-          newString += '┐\n';
-        } else newString += '─';
-      } else if (y === height - 1) {
-        if (x === 0) {
-          newString += '└';
-        } else if (x === width - 1) {
-          newString += '┘\n';
-        } else newString += '─';
-      } else if (x === 0) {
-        newString += '│';
-      } else if (x === width - 1) {
-        newString += '│\n';
-      } else newString += ' ';
-    }
-  }
-  return newString;
+function getRectangleString(/* width, height */) {
+  // let newString = '';
+  // for (let y = 0; y < width; y += 1) {
+  //   for (let x = 0; x < height; x += 1) {
+  //     if (y === 0) {
+  //       if (x === 0) {
+  //         newString += '┌';
+  //       } else if (x === width - 1) {
+  //         newString += '┐\n';
+  //       } else newString += '─';
+  //     } else if (y === height - 1) {
+  //       if (x === 0) {
+  //         newString += '└';
+  //       } else if (x === width - 1) {
+  //         newString += '┘\n';
+  //       } else newString += '─';
+  //     } else if (x === 0) {
+  //       newString += '│';
+  //     } else if (x === width - 1) {
+  //       newString += '│\n';
+  //     } else newString += ' ';
+  //   }
+  // }
+  // return newString;
+  throw new Error('Not implemented');
 }
 
 /**
@@ -241,10 +242,11 @@ function getRectangleString(width, height) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(str) {
-  return `${str}`.replace(/[a-zA-Z]/gi, (s) =>
-    String.fromCharCode(s.charCodeAt(0) + (s.toLowerCase() < 'n' ? 13 : -13))
-  );
+function encodeToRot13(/* str */) {
+  // return `${str}`.replace(/[a-zA-Z]/gi, (s) => {
+  //   String.fromCharCode(s.charCodeAt(0) + (s.toLowerCase() < 'n' ? 13 : -13));
+  // });
+  throw new Error('Not implemented');
 }
 
 /**
@@ -261,7 +263,7 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-  return typeof value === 'string';
+  return Object.prototype.toString.call(value) === '[object String]';
 }
 
 /**
@@ -288,8 +290,9 @@ function isString(value) {
  *   'Q♠' => 50
  *   'K♠' => 51
  */
-function getCardId(value) {
-  return value.indexOf(value[value.length - 1]);
+function getCardId() {
+  // return value.indexOf(value[value.length - 1]);
+  throw new Error('Not implemented');
 }
 
 module.exports = {
