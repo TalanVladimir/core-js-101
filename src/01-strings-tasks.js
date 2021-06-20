@@ -123,9 +123,8 @@ function repeatString(value, count) {
  *   'I like legends', 'end' => 'I like legs',
  *   'ABABAB','BA' => 'ABAB'
  */
-function removeFirstOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
-  // return str.repeat(value.trim(), '');
+function removeFirstOccurrences(str, value) {
+  return str.replace(value, '');
 }
 
 /**
@@ -200,31 +199,33 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(/* width, height */) {
-  // let newString = '';
-  // for (let y = 0; y < width; y += 1) {
-  //   for (let x = 0; x < height; x += 1) {
-  //     if (y === 0) {
-  //       if (x === 0) {
-  //         newString += '┌';
-  //       } else if (x === width - 1) {
-  //         newString += '┐\n';
-  //       } else newString += '─';
-  //     } else if (y === height - 1) {
-  //       if (x === 0) {
-  //         newString += '└';
-  //       } else if (x === width - 1) {
-  //         newString += '┘\n';
-  //       } else newString += '─';
-  //     } else if (x === 0) {
-  //       newString += '│';
-  //     } else if (x === width - 1) {
-  //       newString += '│\n';
-  //     } else newString += ' ';
-  //   }
-  // }
-  // return newString;
   throw new Error('Not implemented');
 }
+// function getRectangleString(width, height) {
+//   let newString = '';
+//   for (let y = 0; y < width; y += 1) {
+//     for (let x = 0; x < height; x += 1) {
+//       if (y === 0) {
+//         if (x === 0) {
+//           newString += '┌';
+//         } else if (x === width - 1) {
+//           newString += '┐\n';
+//         } else newString += '─';
+//       } else if (y === height - 1) {
+//         if (x === 0) {
+//           newString += '└';
+//         } else if (x === width - 1) {
+//           newString += '┘\n';
+//         } else newString += '─';
+//       } else if (x === width - 1) {
+//         newString += '│\n';
+//       } else if (x === 0) {
+//         newString += '│';
+//       } else newString += ' ';
+//     }
+//   }
+//   return newString;
+// }
 
 /**
  * Encode specified string with ROT13 cipher
