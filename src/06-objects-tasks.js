@@ -35,8 +35,8 @@ function Rectangle(width, height) {
  *    [1,2,3]   =>  '[1,2,3]'
  *    { width: 10, height : 20 } => '{"height":10,"width":20}'
  */
-function getJSON(/* obj */) {
-  throw new Error('Not implemented');
+function getJSON(obj) {
+  return JSON.stringify(obj);
 }
 
 /**
@@ -72,7 +72,7 @@ function fromJSON(/* proto, json */) {
  * according to css specification.
  *
  * Provided cssSelectorBuilder should be used as facade only to create your own classes,
- * for example the first method of cssSelectorBuilder can be like this:
+ * for example the first method of cssSelectorBu++ilder can be like this:
  *   element: function(value) {
  *       return new MySuperBaseElementSelector(...)...
  *   },
