@@ -434,14 +434,12 @@ function toStringList(arr) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  *    ]
  */
-// function sortCitiesArray(/* arr */) {
-//   throw new Error('Not implemented');
-// }
 function sortCitiesArray(arr) {
   return arr.sort((a, b) => {
-    if (a > b) return 1;
-    if (a < b) return -1;
-    return 0;
+    if (a.country === b.country) {
+      return a.city > b.city ? 1 : -1;
+    }
+    return a.country > b.country ? 1 : -1;
   });
 }
 
@@ -466,6 +464,7 @@ function sortCitiesArray(arr) {
 function getIdentityMatrix(/* n */) {
   throw new Error('Not implemented');
 }
+// function getIdentityMatrix(n) {}
 
 /**
  * Creates an array of integers from the specified start to end (inclusive)
@@ -480,8 +479,13 @@ function getIdentityMatrix(/* n */) {
  *     0, 100 => [ 0, 1, 2, ..., 100 ]
  *     3, 3   => [ 3 ]
  */
-function getIntervalArray(/* start, end */) {
-  throw new Error('Not implemented');
+// function getIntervalArray(/* start, end */) {
+//   throw new Error('Not implemented');
+// }
+function getIntervalArray(start, end) {
+  return Array(end - start + 1)
+    .fill()
+    .map((s, idx) => start + idx);
 }
 
 /**
@@ -495,8 +499,8 @@ function getIntervalArray(/* start, end */) {
  *   [ 'a', 'a', 'a', 'a' ]  => [ 'a' ]
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
-function distinct(/* arr */) {
-  throw new Error('Not implemented');
+function distinct(arr) {
+  return arr.filter((x, y, z) => z.indexOf(x) === y);
 }
 
 /**
@@ -532,6 +536,9 @@ function distinct(/* arr */) {
 function group(/* array, keySelector, valueSelector */) {
   throw new Error('Not implemented');
 }
+// function group(array, keySelector, valueSelector) {
+//   return Map.call;
+// }
 
 /**
  * Projects each element of the specified array to a sequence
