@@ -101,15 +101,9 @@ function getArrayOfStrings(arr) {
  *    [ 1, 2, 3, 4, 5, 'false' ]         => [ 1, 2, 3, 4, 5, 'false' ]
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
-function removeFalsyValues(/* arr */) {
-  throw new Error('Not implemented');
+function removeFalsyValues(arr) {
+  return arr.filter((x) => x);
 }
-// function removeFalsyValues(arr) {
-//   return arr.filter(
-//     (x) =>
-//       !Number.isNaN(x) || !Number.isNaN(x) || x !== false || x !== 'undefined'
-//   );
-// }
 
 /**
  * Returns the array of uppercase strings from the specified array
@@ -260,7 +254,7 @@ function getMovingSum(/* arr */) {
  * [ "a" ] => []
  */
 function getSecondItems(arr) {
-  return arr.filter((x) => arr.indexOf(x) % 2 !== 0);
+  return arr.filter((x, ind) => ind % 2 !== 0);
 }
 
 /**
@@ -294,14 +288,13 @@ function propagateItemsByPositionIndex(/* arr */) {
  *   [ 1,2,3,4,5,6,7,8,9,10 ] => [ 10, 9, 8 ]
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
-function get3TopItems(/* arr */) {
-  throw new Error('Not implemented');
-}
-// function get3TopItems(arr) {
-//   return arr
-//     .sort((a, b) => { return a - b;})
-//     .slice(0, 3);
+// function get3TopItems(/* arr */) {
+//   throw new Error('Not implemented');
 // }
+function get3TopItems(arr) {
+  const srt = (a, b) => b - a;
+  return arr.sort((a, b) => srt(a, b)).slice(0, 3);
+}
 
 /**
  * Returns the number of positive numbers from specified array
@@ -316,12 +309,9 @@ function get3TopItems(/* arr */) {
  *   [ null, 1, 'elephant' ] => 1
  *   [ 1, '2' ] => 1
  */
-function getPositivesCount(/* arr */) {
-  throw new Error('Not implemented');
+function getPositivesCount(arr) {
+  return arr.filter((x) => typeof x === 'number' && x > 0).length;
 }
-// function getPositivesCount( arr ) {
-// return arr.map((x, y) => (x > 0) y +=1  )
-// }
 
 /**
  * Sorts digit names
