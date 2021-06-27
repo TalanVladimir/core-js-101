@@ -198,34 +198,23 @@ function extractEmails(str) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(/* width, height */) {
-  throw new Error('Not implemented');
-}
-// function getRectangleString(width, height) {
-//   let newString = '';
-//   for (let y = 0; y < width; y += 1) {
-//     for (let x = 0; x < height; x += 1) {
-//       if (y === 0) {
-//         if (x === 0) {
-//           newString += '┌';
-//         } else if (x === width - 1) {
-//           newString += '┐\n';
-//         } else newString += '─';
-//       } else if (y === height - 1) {
-//         if (x === 0) {
-//           newString += '└';
-//         } else if (x === width - 1) {
-//           newString += '┘\n';
-//         } else newString += '─';
-//       } else if (x === width - 1) {
-//         newString += '│\n';
-//       } else if (x === 0) {
-//         newString += '│';
-//       } else newString += ' ';
-//     }
-//   }
-//   return newString;
+// function getRectangleString(/* width, height */) {
+//   throw new Error('Not implemented');
 // }
+function getRectangleString(width, height) {
+  let topSide = '';
+  let botSide = '';
+  let midSide = '';
+  const symb1 = '─';
+  const symb2 = ' ';
+  const symb3 = '│';
+  if (width < 2 || height < 2) return false;
+
+  topSide = `┌${symb1.repeat(width - 2)}┐\n`;
+  midSide = `${symb3}${symb2.repeat(width - 2)}${symb3}\n`;
+  botSide = `└${symb1.repeat(width - 2)}┘\n`;
+  return topSide + midSide.repeat(height - 2) + botSide;
+}
 
 /**
  * Encode specified string with ROT13 cipher
@@ -243,14 +232,13 @@ function getRectangleString(/* width, height */) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(/* str */) {
-  throw new Error('Not implemented');
+function encodeToRot13(str) {
+  const input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+  const index = (x) => input.indexOf(x);
+  const translate = (x) => (index(x) > -1 ? output[index(x)] : x);
+  return str.split('').map(translate).join('');
 }
-// function encodeToRot13(str) {
-//   return `${str}`.replace(/[a-zA-Z]/gi, (s) => {
-//     String.fromCharCode(s.charCodeAt(0) + (s.toLowerCase() < 'n' ? 13 : -13));
-//   });
-// }
 
 /**
  * Returns true if the value is string; otherwise false.
@@ -293,9 +281,62 @@ function isString(value) {
  *   'Q♠' => 50
  *   'K♠' => 51
  */
-function getCardId() {
-  // return value.indexOf(value[value.length - 1]);
-  throw new Error('Not implemented');
+function getCardId(value) {
+  const arr = [
+    'A♣',
+    '2♣',
+    '3♣',
+    '4♣',
+    '5♣',
+    '6♣',
+    '7♣',
+    '8♣',
+    '9♣',
+    '10♣',
+    'J♣',
+    'Q♣',
+    'K♣',
+    'A♦',
+    '2♦',
+    '3♦',
+    '4♦',
+    '5♦',
+    '6♦',
+    '7♦',
+    '8♦',
+    '9♦',
+    '10♦',
+    'J♦',
+    'Q♦',
+    'K♦',
+    'A♥',
+    '2♥',
+    '3♥',
+    '4♥',
+    '5♥',
+    '6♥',
+    '7♥',
+    '8♥',
+    '9♥',
+    '10♥',
+    'J♥',
+    'Q♥',
+    'K♥',
+    'A♠',
+    '2♠',
+    '3♠',
+    '4♠',
+    '5♠',
+    '6♠',
+    '7♠',
+    '8♠',
+    '9♠',
+    '10♠',
+    'J♠',
+    'Q♠',
+    'K♠',
+  ];
+  return arr.indexOf(value);
 }
 
 module.exports = {

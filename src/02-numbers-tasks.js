@@ -110,8 +110,13 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (0,1)     => 0
  *   (0,1) (1,2)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+// function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
+//   throw new Error('Not implemented');
+// }
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  let angle = Math.atan2(y2, x2) - Math.atan2(y1, x1);
+  if (angle < 0) angle *= -1;
+  return angle;
 }
 
 /**
@@ -158,8 +163,8 @@ function parseNumberFromString(value) {
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelipidedDiagonal(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getParallelipidedDiagonal(a, b, c) {
+  return Math.sqrt(a * a + b * b + c * c);
 }
 
 /**
