@@ -76,8 +76,17 @@ function isLeapYear(date) {
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,10,0,0,250)     => "00:00:00.250"
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
  */
-function timeSpanToString(/* startDate, endDate */) {
-  throw new Error('Not implemented');
+function timeSpanToString(startDate, endDate) {
+  let hours = endDate.getHours() - startDate.getHours();
+  if (hours.toString().length < 2) hours = `0${hours}`;
+  let mins = endDate.getMinutes() - startDate.getMinutes();
+  if (mins.toString().length < 2) mins = `0${mins}`;
+  let secs = endDate.getSeconds() - startDate.getSeconds();
+  if (secs.toString().length < 2) secs = `0${secs}`;
+  let milsecs = endDate.getMilliseconds() - startDate.getMilliseconds();
+  if (milsecs.toString().length === 2) milsecs = `0${milsecs}`;
+  if (milsecs.toString().length === 1) milsecs = '000';
+  return `${hours}:${mins}:${secs}.${milsecs}`;
 }
 
 /**
@@ -99,6 +108,12 @@ function timeSpanToString(/* startDate, endDate */) {
 function angleBetweenClockHands(/* date */) {
   throw new Error('Not implemented');
 }
+// function angleBetweenClockHands(date) {
+//   const minuteAngle = date.getMinutes() * 6;
+//   const hourAngle = date.getUTCHours() * 30 + date.getMinutes() * 0.5;
+//   const angle = Math.abs(hourAngle - minuteAngle);
+//   return Math.min(angle, 360 - angle);
+// }
 
 module.exports = {
   parseDataFromRfc2822,

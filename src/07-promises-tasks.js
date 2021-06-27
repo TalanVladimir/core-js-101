@@ -30,6 +30,12 @@
 function willYouMarryMe(/* isPositiveAnswer */) {
   throw new Error('Not implemented');
 }
+// function willYouMarryMe(isPositiveAnswer) {
+// function toString() {
+// if (isPositiveAnswer) console.log('Hooray!!! She said "Yes"!');
+// else console.log('Oh no, she said "No".');
+// }
+// }
 
 /**
  * Return Promise object that should be resolved with array containing plain values.
